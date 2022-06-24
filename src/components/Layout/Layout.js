@@ -1,7 +1,6 @@
-import React, { useState, useEffect,useRef } from 'react'
-import {CssBaseline, IconButton, Typography, Button, Drawer, Paper, Divider, Container, Card, CardActionArea, CardContent, CardMedia, Grid } from '@material-ui/core'
-import { Menu as MenuIcon } from '@material-ui/icons'
-import Logo from './icon.jpg'
+import React, { useState, useEffect} from 'react'
+import {Typography,Paper, Container, Card, CardActionArea, CardContent, CardMedia, Grid } from '@material-ui/core'
+
 import { makeStyles } from '@material-ui/core/styles'
 import axios from 'axios'
 import './layout.css'
@@ -35,17 +34,18 @@ const useStyles = makeStyles(theme => ({
 		background: 'linear-gradient(45deg, #AE64F3 20)'
 	},
 	imagePoke: {
-		height: 250
+		height: 250,
+		Justify:'center',
 	}
 }))
 
 const Layout = () => {
 
+const classes = useStyles()
 const [pokemon, setPokeNum] = useState(0);
 const [pokedata, setPokeData] = useState("");
 const [pokedataesp, setPokeDataESP] = useState([]);
-const [Shini, setShini] = useState(0);
-const [mostrar, setMostrat] = useState(0);
+
 
 const getdata = () => {
   axios
@@ -74,7 +74,7 @@ useEffect(() => {
 
 	return (
 		<div className='pokemonContenedor'>
-<div class="pokedex-container">
+		<div class="pokedex-container">
         <div class="pokedex__header">
             <div class="pokedex__header-title">
                 <h1>POKEDEX 190607</h1>
@@ -103,7 +103,7 @@ useEffect(() => {
 
 		  <div class="pokedex__header-search">
                 <form action="" id="searchPokemon">
-                    <button 
+                    {/* <button 
 					type="button"
 					onClick={(event) => {
 					   if (pokemon >= 1125) {
@@ -111,9 +111,9 @@ useEffect(() => {
 					   } else {
 						 setPokeNum(Number(pokemon) + 10);
 					   }
-					 }}>
+					 }}> */}
                         <img src={pokeball} alt="pokeball"/>
-                    </button>
+                    {/* </button> */}
 
                 </form>
             </div>
@@ -136,28 +136,35 @@ useEffect(() => {
 	
 
 			  <div className="text-center">
-      </div>
-      <table className="table table-danger table-striped">
-       
-        <tbody>
+      
+	  <Container maxWidth='lg' component={Paper} elevattion={4} className={classes.container}>
+       <Card>
+		<Grid container spacing={2}>
           {pokedataesp.map((poke, index) => (
-            <tr key={index}>
-              <td>{`${poke.data.id}`}</td>
-              <td>{`${poke.data.name}`}</td>
-              <td>
-                <img
-                  src={
+            <Grid item xs={12} sm={4} key={index}>
+			<CardActionArea>
+				<CardContent>
+					<CardMedia >
+               			 <img
+                 			src={
                     
-                        poke.data.sprites.front_default
-                  }
-                  alt="No image"
-                />
-              </td>
-            </tr>
+                    		    poke.data.sprites.front_default
+                 	 		}
+							  className={classes.imagePoke}
+                  			alt="No image"
+				  		/>
+			
+					</CardMedia>  
+					<Typography align='center' variant='h4'>{`${poke.data.id}`}</Typography>
+					<Typography align='center' variant='h4'>{`${poke.data.name}`}</Typography>
+				</CardContent>
+			</CardActionArea>
+        </Grid>
           ))}
-        </tbody>
-      </table>
-     
+        </Grid>
+		</Card>
+      </Container>
+	  </div>
 		</div>
 	)
 }
