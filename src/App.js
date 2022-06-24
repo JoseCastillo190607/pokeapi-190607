@@ -6,11 +6,11 @@ import Layout from './components/Layout'
 const App = () => {
 	return (
 		
-		// <Router>
-		// 		<Switch>
-		// 			<Route exact path='/' name='Layout' render={() => <Layout />} />
-		// 		</Switch>
-		// </Router>
+		<Router>
+				<Switch>
+					<Route exact path='/' name='Layout' render={() => <Layout />} />
+				</Switch>
+		</Router>
 		
 	)
 
