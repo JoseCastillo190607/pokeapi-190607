@@ -72,6 +72,7 @@ useEffect(() => {
   }
 }, [pokedata]);
 
+
 	return (
 		<div className='pokemonContenedor'>
 		<div class="pokedex-container">
@@ -103,18 +104,7 @@ useEffect(() => {
 
 		  <div class="pokedex__header-search">
                 <form action="" id="searchPokemon">
-                    {/* <button 
-					type="button"
-					onClick={(event) => {
-					   if (pokemon >= 1125) {
-						 setPokeNum(Number(0));
-					   } else {
-						 setPokeNum(Number(pokemon) + 10);
-					   }
-					 }}> */}
                         <img src={pokeball} alt="pokeball"/>
-                    {/* </button> */}
-
                 </form>
             </div>
 
@@ -138,14 +128,14 @@ useEffect(() => {
 			  <div className="text-center">
       
 	  <Container maxWidth='lg' component={Paper} elevattion={4} className={classes.container}>
-       <Card>
-		<Grid container spacing={2}>
+       <Card container spacing={24}>
+		<Grid container spacing={24} justify='center' >
           {pokedataesp.map((poke, index) => (
             <Grid item xs={12} sm={4} key={index}>
 			<CardActionArea>
 				<CardContent>
 					<CardMedia >
-               			 <img
+               			 <img justify='center'
                  			src={
                     
                     		    poke.data.sprites.front_default
