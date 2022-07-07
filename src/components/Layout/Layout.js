@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 		width: '100%'
 	},
 	container: {
-		marginTop: theme.spacing(15)
+		marginTop: theme.spacing(12)
 	},
 	card: {
 		maxWidth: 350,
@@ -45,6 +45,7 @@ const classes = useStyles()
 const [pokemon, setPokeNum] = useState(0);
 const [pokedata, setPokeData] = useState("");
 const [pokedataesp, setPokeDataESP] = useState([]);
+
 
 
 const getdata = () => {
@@ -75,15 +76,15 @@ useEffect(() => {
 
 	return (
 		<div className='pokemonContenedor'>
-		<div class="pokedex-container">
-        <div class="pokedex__header">
-            <div class="pokedex__header-title">
+		<div className="pokedex-container">
+        <div className="pokedex__header">
+            <div className="pokedex__header-title">
                 <h1>POKEDEX 190607</h1>
             </div>
            
             
-            <div class="pokedex__header-aline">
-                <div class="arrow-leftContent">
+            <div className="pokedex__header-aline">
+                <div className="arrow-leftContent">
         
 				</div>
         <input
@@ -98,11 +99,11 @@ useEffect(() => {
             }
           }}
         />
-                <div class="arrow-rightContent" >
+                <div className="arrow-rightContent" >
          
           </div>  
 
-		  <div class="pokedex__header-search">
+		  <div className="pokedex__header-search">
                 <form action="" id="searchPokemon">
                         <img src={pokeball} alt="pokeball"/>
                 </form>
@@ -128,8 +129,8 @@ useEffect(() => {
 			  <div className="text-center">
       
 	  <Container maxWidth='lg' component={Paper} elevattion={4} className={classes.container}>
-       <Card container spacing={24}>
-		<Grid container spacing={24} justify='center' >
+       <Card container spacing={2}>
+		<Grid container spacing={2} justify='center' >
           {pokedataesp.map((poke, index) => (
             <Grid item xs={12} sm={4} key={index}>
 			<CardActionArea>

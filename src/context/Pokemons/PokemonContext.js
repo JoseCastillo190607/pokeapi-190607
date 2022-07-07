@@ -1,5 +1,5 @@
-import { createContext } from "react";
+// import { createContext } from "react";
 
-const PokemonContext = createContext()
+// const PokemonContext = createContext()
 
-export default PokemonContext; 
+// export default PokemonContext; 
