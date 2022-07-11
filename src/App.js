@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Layout from './components/Layout';
-import PokemonList from './components/PokemonList';
-import BarraBusqueda from './components/BarraBusqueda'
+import PokemonList from './components/pokeCard/PokemonList';
+import BarraBusqueda from './components/barraBusqueda/BarraBusqueda'
+import { useContext } from 'react';
+import { PokemonContext, PokemonProvider } from './contextGlobal/PokemonContext';
 // import ProfilePokemon from './components/ProfilePokemon';
-// import 'bootstrap/dist/css/bootstrap.min.css'
-import PokemonProvider from './components/PokemonProvider';
+import 'bootstrap/dist/css/bootstrap.min.css'
+// import PokemonProvider from './components/PokemonProvider';
 
 
 
@@ -13,6 +15,7 @@ import PokemonProvider from './components/PokemonProvider';
 // import PokemonContext from './context/Pokemons/PokemonContext';
 
 const App = () => {
+
 	return (
 		<PokemonProvider>
 			<Router>
@@ -22,11 +25,10 @@ const App = () => {
 				<Switch>
 					<Route exact path='/Busqueda' name='PokemonList' render={() => <BarraBusqueda />} />
 				</Switch>
-				{/* <Switch>
+				<Switch>
 					<Route exact path='/Busqueda' name='PokemonList' render={() => <PokemonList />} />
-				</Switch> */}
+				</Switch>
 			</Router>
-			{/* <ProfilePokemon/> */}
 		</PokemonProvider>
 	)
 
