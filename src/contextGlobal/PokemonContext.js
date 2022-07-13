@@ -1,5 +1,5 @@
-import React, { useState, createContext } from 'react'
-
+import React, { useState, createContext, useEffect } from 'react'
+import axios from 'axios'
 const initialState = {
           pokemon:"",
           img:"",
@@ -10,28 +10,31 @@ export const PokemonContext = createContext(initialState);
 export const PokemonProvider = ({children}) => {
 
   const[pokemon,setPokemon] = useState("")
-  const [img, setImg] = useState([])
-  const [cardPokemon, setCardpokemon] = useState([]);
-  const imgPokemon = (pokeImage) => (
-      pokeImage= pokeImage.pokedataesp.map((poke, name) => (
-        //key={name},
-        poke.data.sprites.front_default
-      )),
-      setImg(pokeImage)
-    );
+  // const [nombrePokemon, setNombrePokemon] = useState([])
+  // const [cardPokemon, setCardpokemon] = useState([]);
+ 
   const handleChange = (NamePokemon) => {
     NamePokemon = NamePokemon.toLowerCase()
     setPokemon(NamePokemon)
   };
 
-  
+  const [pokemonBuscado, setPokemonBuscado] = useState=("")
+
+  const getdata = async () => {
+    await axios.get('https://pokeapi.co/api/v2/pokemon')
+    .then((res) => {
+      mostrarPokemon(res.data.results);
+    }).catch((err) => {
+      console.log("Este pokemon no existe")
+    });  
+  useEffect(getdata, {mostrarPokemon})
+
   return(
-    <PokemonContext.Provider value={{pokemon,handleChange,imgPokemon}}>
+    <PokemonContext.Provider value={{pokemon,handleChange}}>
       {children}
     </PokemonContext.Provider>
   )
-}
-
+}}
 
 // const filtrar=(terminoBusqueda)=> {
 //   var busquedaResult=img.filter((elemento)=>{

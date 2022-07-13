@@ -106,7 +106,7 @@ const Layout = () => {
 
 						<div className="pokedex__header-search">
 							<form action="" id="searchPokemon">
-								<Link to='/Busqueda' className='pokeImg' > 
+								<Link to='/Busqueda'> 
 									<img src={pokeball} alt="pokeball" className='pokeImg' />
 								</Link>
 							</form>

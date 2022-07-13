@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { PokemonContext, PokemonProvider } from './contextGlobal/PokemonContext';
 // import ProfilePokemon from './components/ProfilePokemon';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { NavigateBeforeSharp } from '@material-ui/icons';
 // import PokemonProvider from './components/PokemonProvider';
 
 
@@ -19,6 +20,9 @@ const App = () => {
 	return (
 		<PokemonProvider>
 			<Router>
+				<Switch>
+					<Route exact path='/' name='Navegacion' render={() => <NavigateBeforeSharp />} />
+				</Switch>
 				<Switch>
 					<Route exact path='/' name='Layout' render={() => <Layout />} />
 				</Switch>
