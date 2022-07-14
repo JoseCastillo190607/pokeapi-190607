@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Typography, Paper, Container, Card, CardActionArea, CardContent, CardMedia, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import axios from 'axios'
 import './layout.css'
 import pokeball from '../img/pokeball.png'
+import pokeball2 from '../img/pokedex.png'
 import { Link } from 'react-router-dom'
+import { PokemonContext } from '../../contextGlobal/PokemonContext'
+import { Search } from '@material-ui/icons'
 
 
 const useStyles = makeStyles(theme => ({
@@ -40,6 +43,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Layout = () => {
+
+	const {handleChange,} = useContext(PokemonContext)
 
 	const classes = useStyles()
 	const [pokemon, setPokeNum] = useState(0);
@@ -80,9 +85,112 @@ const Layout = () => {
 			<div className="pokedex-container">
 				<div className="pokedex__header">
 					<div className="pokedex__header-title">
-						<h1>POKEDEX 190607</h1>
+						{/* <h1>POKEDEX 190607</h1> */}
 					</div>
+					{/* <div className="pokedex__header-search">
+					<div className="pokedex__header-aline"> 
+					<div className="arrow-leftContentInput">
+						<form className='arrow-leftImg' action="" id="searchPokemon">
+								{/* <form className="d-flex" role="search"> */}
+							{/* <input
+								className="form-control "
+								
+								type="search"
+								placeholder="Search"
+								aria-label="Search"
+								pattern="[A-Za-z ]"
+								onChange={(event) => {
+									// SetNameNum(event.target.value);
+									handleChange(event.target.value)
+								}}
+							/>
+						</form> */} 
+							{/* </form> */}
+						{/* </div>
+						<div className="arrow-leftContentImg">
+						<form className='arrow-leftImg' action="" id="searchPokemon">
+								<Link to='/Busqueda'>
+									<img src={pokeball} alt="pokeball" className='pokeImg'
+										onClick={() => {
+											// handleCount(NameNum.toString());
+										}}
+									/>
+								</Link>
+							</form> */}
+						{/* </div> */}
+						{/* <input
+							className="arrow-left"
+							type="button"
+							value="Pagina Anterior"
+							onClick={(event) => {
+								if (pokemon <= 0) {
+									setPokeNum(Number(1116));
+								} else {
+									setPokeNum(Number(pokemon) - 10);
+								}
+							}}
+						/> */}
+						{/* <div className="arrow-rightContent" >
 
+						</div>
+
+						{/* <div className="pokedex__header-search">
+							<form action="" id="searchPokemon">
+								<Link to='/Busqueda'> 
+									<img src={pokeball} alt="pokeball" className='pokeImg' />
+								</Link>
+							</form>
+						</div> */}
+
+						{/* <input
+							className="arrow-right"
+							type="button"
+							value="Pagina Siguiente"
+							onClick={(event) => {
+								if (pokemon >= 1125) {
+									setPokeNum(Number(0));
+								} else {
+									setPokeNum(Number(pokemon) + 10);
+								}
+							}}
+						/> */}
+					{/* </div>  */}
+						{/* <form  action="" id="searchPokemon">
+								<Link to='/Busqueda'>
+									<img src={pokeball} alt="pokeball" className='pokeImg'
+										onClick={() => {
+											// handleCount(NameNum.toString());
+										}}
+									/>
+								</Link>
+							</form> */}
+
+						{/* <div><form className="d-flex" role="search">
+							<input
+								className="form-control me-2"
+								type="search"
+								placeholder="Search"
+								aria-label="Search"
+								pattern="[A-Za-z ]"
+								onChange={(event) => {
+									// SetNameNum(event.target.value);
+								}}
+							/>
+						</form></div> */}
+
+						{/* <Link
+                className="btn btn-success"
+                to="/search"
+                onClick={() => {
+                  // handleCount(NameNum.toString());
+                }}
+              >
+                Search
+              </Link> */}
+						{/* <Link to='/Busqueda'> 
+						<img src={pokeball} alt="pokeball" className='pokeImg' />
+					</Link> */}
+					{/* </div> */}
 
 					<div className="pokedex__header-aline">
 						<div className="arrow-leftContent">
@@ -106,9 +214,9 @@ const Layout = () => {
 
 						<div className="pokedex__header-search">
 							<form action="" id="searchPokemon">
-								<Link to='/Busqueda'> 
-									<img src={pokeball} alt="pokeball" className='pokeImg' />
-								</Link>
+								
+									<img src={pokeball2} alt="pokebola" className='pokeImg' />
+								
 							</form>
 						</div>
 

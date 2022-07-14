@@ -1,0 +1,31 @@
+.nav{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: rgb(15, 43, 92);
+
+}
+
+.fondo{
+    background: rgb(15, 43, 92);
+    width: 100%;
+}
+
+.form-control1 { 
+    border-color: tomato;
+}
+
+.searchContainer{
+    align-items: center;
+    justify-content: center;
+}
+
+.pokedex__header-search{
+    margin: auto;
+}
+
+.pokedex__header-title{
+    color: rgb(127, 138, 163);
+    margin:0 25px 0 10px ;
+    text-align: center ;
+}

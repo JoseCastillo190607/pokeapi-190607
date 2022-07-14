@@ -18,23 +18,24 @@ export const PokemonProvider = ({children}) => {
     setPokemon(NamePokemon)
   };
 
-  const [pokemonBuscado, setPokemonBuscado] = useState=("")
+  // const [pokemonBuscado, setPokemonBuscado] = useState=("")
+  // const [mostrarPokemon, setMostrarPokemon] = useState=([])
 
-  const getdata = async () => {
-    await axios.get('https://pokeapi.co/api/v2/pokemon')
-    .then((res) => {
-      mostrarPokemon(res.data.results);
-    }).catch((err) => {
-      console.log("Este pokemon no existe")
-    });  
-  useEffect(getdata, {mostrarPokemon})
+  // const getdata = async () => {
+  //   await axios.get('https://pokeapi.co/api/v2/pokemon')
+  //   .then((res) => {
+  //     mostrarPokemon(res.data.results);
+  //   }).catch((err) => {
+  //     console.log("Este pokemon no existe")
+  //   });  
+  // useEffect([], {getdata})
 
   return(
     <PokemonContext.Provider value={{pokemon,handleChange}}>
       {children}
     </PokemonContext.Provider>
   )
-}}
+}
 
 // const filtrar=(terminoBusqueda)=> {
 //   var busquedaResult=img.filter((elemento)=>{

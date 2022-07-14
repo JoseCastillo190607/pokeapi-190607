@@ -4,12 +4,13 @@ import PokemonList from './components/pokeCard/PokemonList';
 import BarraBusqueda from './components/barraBusqueda/BarraBusqueda'
 import { useContext } from 'react';
 import { PokemonContext, PokemonProvider } from './contextGlobal/PokemonContext';
-// import ProfilePokemon from './components/ProfilePokemon';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Navbar from './components/Navbar/Navbar';
+
+
 import { NavigateBeforeSharp } from '@material-ui/icons';
+// import ProfilePokemon from './components/ProfilePokemon';
 // import PokemonProvider from './components/PokemonProvider';
-
-
 
 //Context
 // import PokemonsState from  './context/Pokemons/PokemonStateGlobal'
@@ -21,7 +22,7 @@ const App = () => {
 		<PokemonProvider>
 			<Router>
 				<Switch>
-					<Route exact path='/' name='Navegacion' render={() => <NavigateBeforeSharp />} />
+					<Route exact path='/' name='Navegacion' render={() => <Navbar />} />
 				</Switch>
 				<Switch>
 					<Route exact path='/' name='Layout' render={() => <Layout />} />
