@@ -66,7 +66,7 @@ export default function Navbar() {
 					<div className="arrow-leftContentInput">
 						<form className='arrow-leftImg' action="" id="searchPokemon">
 							<input
-								className="form-control1"
+								className="form-control"
 								
 								type="search"
 								placeholder="Search"
