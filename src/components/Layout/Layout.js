@@ -8,7 +8,7 @@ import pokeball2 from '../img/pokedex.png'
 import { Link } from 'react-router-dom'
 import { PokemonContext } from '../../contextGlobal/PokemonContext'
 import { Search } from '@material-ui/icons'
-
+import Navbar from '../Navbar/Navbar'
 
 const useStyles = makeStyles(theme => ({
 	paper: {
@@ -81,6 +81,8 @@ const Layout = () => {
 
 
 	return (
+		<div>
+		<Navbar/>
 		<div className='pokemonContenedor'>
 			<div className="pokedex-container">
 				<div className="pokedex__header">
@@ -267,6 +269,7 @@ const Layout = () => {
 					</Card>
 				</Container>
 			</div>
+		</div>
 		</div>
 	)
 }

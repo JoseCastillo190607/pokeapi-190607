@@ -20,6 +20,25 @@
     justify-content: center;
 }
 
+.imgFlag{
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.PokedexH1{
+    text-decoration: none;
+}
+
+.LenguageIcons{
+    flex:0;
+ width:auto;
+ align-items: center;
+ justify-content: center;
+}
+
 .pokedex__header-search{
     margin: auto;
 }
