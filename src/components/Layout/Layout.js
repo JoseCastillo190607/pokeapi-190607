@@ -3,12 +3,10 @@ import { Typography, Paper, Container, Card, CardActionArea, CardContent, CardMe
 import { makeStyles } from '@material-ui/core/styles'
 import axios from 'axios'
 import './layout.css'
-import pokeball from '../img/pokeball.png'
 import pokeball2 from '../img/pokedex.png'
-import { Link } from 'react-router-dom'
 import { PokemonContext } from '../../contextGlobal/PokemonContext'
-import { Search } from '@material-ui/icons'
 import Navbar from '../Navbar/Navbar'
+import "../Navbar/navbar.css"
 
 const useStyles = makeStyles(theme => ({
 	paper: {
@@ -50,9 +48,6 @@ const Layout = () => {
 	const [pokemon, setPokeNum] = useState(0);
 	const [pokedata, setPokeData] = useState("");
 	const [pokedataesp, setPokeDataESP] = useState([]);
-
-
-
 
 	const getdata = () => {
 		axios

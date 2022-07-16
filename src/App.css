@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.ContainerBack{
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://tenor.com/es/ver/pokemon-buneary-pikachu-spinning-wink-gif-22968872");
+}
 
 .App-logo {
   height: 40vmin;
@@ -17,7 +22,7 @@
 .App-header {
   background-color: rgb(255, 10, 10);
   min-height: 100vh;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: center;

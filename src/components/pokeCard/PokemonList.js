@@ -1,71 +1,70 @@
-import React from 'react'
-import { useContext } from 'react'
-import { Grid, Card, CardMedia, CardContent, Typography, CardActionArea } from '@mui/material';
 import { PokemonContext } from '../../contextGlobal/PokemonContext';
 import "./pokemonlist.css"
+  import React , {useContext, useState}from 'react';
+  import './pokemonlist.css'
+  import Navbar from '../Navbar/Navbar';
+  import '../Navbar/navbar.css'
+import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 
-export default function PokemonList() {
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
-  const { pokemon, imgPokemon } = useContext(PokemonContext)
-  return (
-    <div className='PokeCard-container'>
-      <div className='Card-container'>
-      <Card justify='center' sx={{ maxWidth: 345 }} className="card" className='card-disposition'>
-        <Grid container md={48} xs={12} spacing={24} justify='center' >
-          <Grid item md={48} xs={12} sm={4} key={pokemon} justifyItems='center'>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height={500}
-                width={1000}
-                image={imgPokemon}
-                alt={pokemon}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {pokemon}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {pokemon}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Grid>
-        </Grid>
-      </Card>
-      </div>
+    export default function PokemonList() {
+
+      const {pokemon} = useContext(PokemonContext);
+      const [ pokemonFiltrado, setPokemonFiltrado ] = useState({});
+      const [traerImg, setTraerImg] = useState("si")
+    
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+    .then((res) => {
+      setPokemonFiltrado(res.data);
+    })
+
+    const { i18n, t} = useTranslation();
+    function changeLaguage(language) {
+      i18n.changeLanguage(language);
+    }
+
+    return (
+      <>
+      <Navbar/>
+        <div className='cardContainer'>   
+    <Card sx={{ maxWidth: 345 }}>
+      <CardMedia
+        component="img"
+        height="260"
+        image={
+          pokemonFiltrado.sprites
+          ?traerImg === "si"
+            ? pokemonFiltrado.sprites.front_default :""
+        :""}
+        alt={pokemonFiltrado.pokemon}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {pokemonFiltrado.pokemon}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        {pokemonFiltrado.pokemon}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
     </div>
-  )
+    </>
+  );
 }
 
-// //     useEffect(()=>{
-// //       getPokemons();
-// //   },[])
-
-  // const {pokemon} = useContext(PokemonContext);
-
-  // return (
-//     <div className='table'>
-//        <div className='table-responsive'>
-//        <table className='table table-sm table-bordered'>
-//         <thead>
-//           <tr>
-//             <th>Quien es este Pokemon??, es...</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {pokemon &&
-//           pokemon.map((pokemon)=>(
-//             <tr key={pokemon.id}>
-//               <td>{pokemon.name}</td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default function ProfilePokemon() {
+        {/* <div className='cardContainer'>
+      <h4>{pokemonFiltrado.pokemon}</h4>
+      </div>  */}
+      
 

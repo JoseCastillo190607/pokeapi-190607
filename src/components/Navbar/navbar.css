@@ -1,14 +1,32 @@
 .nav{
-    align-items: center;
+    /* align-items: center;
     justify-content: center;
-    display: flex;
     background: rgb(15, 43, 92);
-
+    width: 100%;
+    display: block;
+    flex-direction: column; */
+    /* display: flex; */
+    /* display: block; */
+    background: rgb(15, 43, 92);
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: flex-end;
+    flex-direction: column;
 }
 
 .fondo{
     background: rgb(15, 43, 92);
     width: 100%;
+    display: flex;
+    background: rgb(15, 43, 92);
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: flex-end;
+    flex-direction: column;
 }
 
 .form-control1 { 
@@ -30,6 +48,7 @@
 
 .PokedexH1{
     text-decoration: none;
+    align-items: center;
 }
 
 .LenguageIcons{
@@ -47,4 +66,10 @@
     color: rgb(127, 138, 163);
     margin:0 25px 0 10px ;
     text-align: center ;
+}
+
+.arrow-leftContentInput{
+    align-items: center;
+    justify-content: center;
+    /* display: flex; */
 }

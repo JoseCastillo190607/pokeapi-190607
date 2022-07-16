@@ -8,9 +8,12 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-
+import perfil from '../img/perfil.png'
 import "./about.css"
 import Navbar from '../Navbar/Navbar';
+import { useTranslation } from 'react-i18next'; 
+
+import useAbout from '../../contextGlobal/useAbout';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -25,6 +28,15 @@ const ExpandMore = styled((props) => {
 
 export default function RecipeReviewCard() {
   const [expanded, setExpanded] = React.useState(false);
+  const { i18n, t} = useTranslation();
+
+  function changeLaguage(language){
+    i18n.changeLanguage(language);
+  }
+
+  console.log(i18n.language)
+  
+  const {nombre,matricula,grupo } = useAbout();
 
   return (
     <div>
@@ -34,28 +46,31 @@ export default function RecipeReviewCard() {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            JC
           </Avatar>
         }
         action={
           <IconButton aria-label="settings">
-            {/* <MoreVertIcon /> */}
           </IconButton>
         }
-        titleAbout="Shrimp and Chorizo Paella"
-        subheader="July 14, 2022"
+        title={nombre}
+        subheader={t("subheader")}
       />
       <CardMedia
         component="img"
-        height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
+        height="300"
+        image={perfil}
+        alt={t("titleAbout")}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          {t("carrier")}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        {matricula}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {t("subject")}
         </Typography>
       </CardContent>
     </Card>

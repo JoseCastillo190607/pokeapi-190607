@@ -3,9 +3,12 @@
     "About": "Acerca de",
     "placeHolderEn": "Buscar",
     "titleAbout": "Jose Gpe Castillo",
-    "Matricula-id": "190607",
     "subheader": "14 de Julio del 2022",
     "carrier": "Carrera: Ingenieria en Desarrollo y Gestion de Software",
     "group": "Grupo: 9-A",
-    "subject": "Materia: Desarrollo Web Integral "
+    "subject": "Materia: Desarrollo Web Integral ",
+    "pokemonAlert":"Este pokemon no existe!, intenta de nuevo"
   }
+  
+
+  
